@@ -11,4 +11,10 @@ class Job extends Model
     protected $table = 'job_listing';
     protected $fillable = ['title','salary'];
 
+    public function employees(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Employee::class, 'employee_job_listing', 'job_id', 'employee_id')->withTimestamps();
+    }
+
+
 }

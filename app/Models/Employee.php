@@ -14,4 +14,10 @@ class Employee extends Model
         'name',
         'email',
     ];
+
+    public function jobs(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Job::class, 'employee_job_listing', 'employee_id', 'job_id')->withTimestamps();
+    }
+
 }
