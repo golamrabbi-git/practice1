@@ -1,30 +1,30 @@
 <?php
 
+use App\Http\Controllers\jobController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
-Route::get('/', function () {
-//    dd(database_path('database.sqlite'));
-    $jobs = Job::all();
-//    dd($jobs);
-    return view('home');
-});
-Route::get('/jobs', function ()  {
-//    $jobs = Job::simplePaginate(5);
-    $jobs = Job::all();
-    return view('jobs',['jobs'=>$jobs]);
+Route::view('/', 'home');
+Route::view('/contact','contact');
+
+Route::controller(jobController::class)->group(function () {
+    //index
+    Route::get('/jobs','index');
+//Create
+    Route::get('/jobs/create','create');
+//Show
+    Route::get('/jobs/{job:id}', 'show');
+//Store
+    Route::post('/jobs','store');
+//Edit
+    Route::get('/jobs/{job}/edit','edit');
+//Update
+    Route::patch('/jobs/{job}', 'update');
+//Delete
+    Route::delete('/jobs/{job}', 'destroy');
 });
 
-Route::get('/jobs/{id}', function ($id)  {
-    $job = Job::find($id);
 
-//    dd($job);
-//    return view('job',["job"=>$job]);
-    return view('job',compact('job'));
 
-});
 
-Route::get('/contact', function () {
-    return view('contact');
-});
 
