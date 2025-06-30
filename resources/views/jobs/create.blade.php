@@ -8,33 +8,23 @@
 
             <!-- Job Name -->
             <div>
-                <label for="Job Title" class="block text-sm font-medium text-gray-700">Job Title</label>
-                <input type="text" id="title" name="title"
-                       class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500"
-                       placeholder="Enter job Title" required>
-                @error('title')
-                <p class="text-sm text-semibold text-red-700">{{ $message }}</p>
-                @enderror
+                <x-form-label for="Job Title">Job Title</x-form-label>
+                <x-form-input id="title" name="title" type="text" placeholder="Enter Job Title" required  />
+                <x-form-error name="title"/>
             </div>
 
             <!-- Salary -->
             <div>
-                <label for="salary" class="block text-sm font-medium text-gray-700">Salary</label>
-                <input type="number" id="salary" name="salary"
-                       class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500"
-                       placeholder="Enter salary" required>
-                @error('salary')
-                <p class="text-sm text-semibold text-red-700">{{ $message }}</p>
-                @enderror
+                <x-form-label for="Salary">Salary</x-form-label>
+                <x-form-input id="salary" name="salary" type="text" placeholder="Enter Job Salary" required  />
+                <x-form-error name="salary"/>
             </div>
 
             <!-- Submit Button -->
             <div class="text-center">
-                <button type="submit"
-                        class="px-4 py-2 bg-emerald-800 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-600">
-                    Create Job
-                </button>
+                <x-form-btn type="submit">Save</x-form-btn>
             </div>
+
         </form>
 
 {{--        @if($errors->any())--}}
