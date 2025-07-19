@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class jobController extends Controller
 {
@@ -21,6 +23,7 @@ class jobController extends Controller
         return view('jobs.create');
     }
     public function edit(Job $job){
+        Gate::authorize('edit-job',$job);
         return view('jobs.edit',compact('job'));
     }
     public function store(){

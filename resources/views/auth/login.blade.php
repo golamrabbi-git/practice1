@@ -9,7 +9,7 @@
             <!-- Email -->
             <div>
                 <x-form-label for="email">Email</x-form-label>
-                <x-form-input id="email" name="email" type="email" placeholder="Enter Your Email" required />
+                <x-form-input id="email" name="email" type="email" :value="old('email')" placeholder="Enter Your Email" required />
                 <x-form-error name="email" />
             </div>
 

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee;
 use App\Models\Job;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory(50)->create();
         Job::factory(50)->create();
+        Employee::factory()->count(50)->create();
         $this->call(PostSeeder::class);
     }
 }

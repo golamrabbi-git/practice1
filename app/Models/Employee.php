@@ -9,7 +9,7 @@ class Employee extends Model
 {
     //
     use HasFactory;
-    protected $table = 'employee';
+    protected $table = 'employees';
     protected $fillable = [
         'name',
         'email',
@@ -19,5 +19,10 @@ class Employee extends Model
     {
         return $this->belongsToMany(Job::class, 'employee_job_listing', 'employee_id', 'job_id')->withTimestamps();
     }
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 
 }

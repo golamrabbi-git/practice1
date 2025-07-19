@@ -18,6 +18,7 @@ Route::controller(registerController::class)->group(function(){
 Route::controller(sessionController::class)->group(function(){
     Route::get('/login','create');
     Route::post('/login','store');
+    ROute::post('/logout','destroy');
 });
 
 Route::controller(jobController::class)->group(function () {
